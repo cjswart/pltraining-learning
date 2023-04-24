@@ -28,12 +28,12 @@ class learning::quest_guide (
     ensure   => present,
     provider => git,
     revision => $git_branch,
-    source   => "git://github.com/${content_repo_owner}/${content_repo_name}.git",
+    source   => "https://github.com/${content_repo_owner}/${content_repo_name}.git",
   }
 
   # This builds html from the quest guide repository
   exec { 'gitbook build':
-    command => '/usr/bin/gitbook install && /usr/bin/gitbook build',
+    command => '/usr/local/bin/gitbook install && /usr/local/bin/gitbook build',
     cwd     => $content_repo_dir,
     creates => "${content_repo_dir}/_book",
     require => [Vcsrepo[$content_repo_dir], Package['gitbook-cli']],
