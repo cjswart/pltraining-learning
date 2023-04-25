@@ -36,7 +36,7 @@ class learning::graphite_reqs ($pypi_dir = '/opt/pypiserver', $pypi_pkg_dir = '/
   # Install requests[security]
   # The pip provider doesn't support this syntax, so use an exec
   exec { 'install requests[security]':
-    command => '/bin/pip install requests[security] --index "https://pypi.python.org/simple/"',
+    command => '/bin/pip install requests[security]==2.27.1 --index "https://pypi.python.org/simple/"',
     require => Package['libffi-devel','openssl-devel', 'python-devel'],
   }
 
