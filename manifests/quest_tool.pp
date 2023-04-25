@@ -25,7 +25,7 @@ class learning::quest_tool (
   }
 
   package { 'quest':
-    provider => gem,
+    provider => puppet_gem,
   }
 
   file { '/etc/systemd/system/quest.service':
