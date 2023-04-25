@@ -1,9 +1,11 @@
 class learning::ssh {
-
+  package { 'ruby-augeas':
+    ensure => present,
+  }
   augeas { "GSSAPI_enable":
     context => '/files/etc/ssh/sshd_config',
     changes => 'set GSSAPIAuthentication yes',
-    require => Package['ruby_augeas_lib'],
+    require => Package['ruby-augeas'],
   }
 
   augeas { "disable_key_checking":
@@ -12,7 +14,7 @@ class learning::ssh {
       ["set Host[.='*.puppet.vm'] *.puppet.vm",
        "set Host[.='*.puppet.vm']/StrictHostKeyChecking no",
        "set Host[.='*.puppet.vm']/UserKnownHostsFile /dev/null"],
-    require => Package['ruby_augeas_lib'],
+    require => Package['ruby-augeas'],
   }
 
   service { 'sshd':
