@@ -24,7 +24,7 @@ class learning::quest_tool (
     source => 'puppet:///modules/learning/bashrc.learningvm',
   }
 
-  package { ['git', 'gcc', 'ruby', 'ruby-devel'],
+  package { ['git', 'gcc', 'ruby', 'ruby-devel']:
     ensure => present,
   }
   -> package { 'concurrent-ruby':
