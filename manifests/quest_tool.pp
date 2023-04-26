@@ -24,8 +24,24 @@ class learning::quest_tool (
     source => 'puppet:///modules/learning/bashrc.learningvm',
   }
 
-  package { 'quest':
-    provider => puppet_gem,
+  package { ['git', 'gcc', 'ruby', 'ruby-devel'],
+    ensure => present,
+  }
+  -> package { 'concurrent-ruby':
+    ensure   => '1.1.7',
+    provider => gem,
+  }
+  -> package { 'minitest':
+    ensure   => '5.11.1',
+    provider => gem,
+  }
+  -> package { 'hitimes':
+    ensure   => '1.3.0',
+    provider => gem,
+  }
+  -> package { 'quest':
+    ensure   => '1.2.2',
+    provider => gem,
   }
 
   file { '/etc/systemd/system/quest.service':
