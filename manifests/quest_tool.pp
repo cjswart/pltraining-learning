@@ -27,11 +27,8 @@ class learning::quest_tool (
   package { ['git', 'gcc', 'ruby', 'ruby-devel']:
     ensure => present,
   }
-  -> package { 'timers':
-    ensure   => '4.1.2',
-    provider => gem,
-  }
-  -> package { 'concurrent-ruby':
+  
+  package { 'concurrent-ruby':
     ensure   => '1.1.7',
     provider => gem,
   }
@@ -41,6 +38,10 @@ class learning::quest_tool (
   }
   -> package { 'hitimes':
     ensure   => '1.3.0',
+    provider => gem,
+  }
+  -> package { 'timers':
+    ensure   => '4.1.2',
     provider => gem,
   }
   -> package { 'quest':
