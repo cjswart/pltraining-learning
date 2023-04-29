@@ -88,6 +88,10 @@ class learning::quest_tool (
     ensure   => '1.6.8.1',
     provider => gem,
   }
+  -> package { 'jgrep':
+    ensure   => '1.5.4',
+    provider => gem,
+  }
   -> package { 'quest':
     ensure   => '1.2.2',
     provider => gem,
