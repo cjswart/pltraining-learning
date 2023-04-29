@@ -64,6 +64,10 @@ class learning::quest_tool (
     ensure   => '2.0.2',
     provider => gem,
   }
+  -> package { 'rack':
+    ensure   => '1.6.4',
+    provider => gem,
+  }
   -> package { 'thin':
     ensure   => '1.7.2',
     provider => gem,
