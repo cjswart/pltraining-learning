@@ -15,9 +15,22 @@ class learning::quest_guide (
     repo_class                => '::epel',
   }
 
+  file { '/usr/src/puppet-quest-guide/package.json':
+    ensure  => file,
+    mode    => '0644',
+    owner   => 'root',
+    group   => 'root',
+    content => '{"resolutions":{"graceful-fs":"4.2.4"},"devDependencies":{"graceful-fs":"^4.2.4"}}',
+  }
+  package { 'graceful-fs':
+    ensure   => 4.2.4,
+    provider => 'npm',
+    install_options => ['--save-dev'].
+    require  => Package['npm'],
+  }
   # Install gitbook-cli
   package { 'gitbook-cli':
-    ensure   => present,
+    ensure   => 2.1.2,
     provider => 'npm',
     require  => Package['npm'],
   }
