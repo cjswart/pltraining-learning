@@ -23,6 +23,14 @@ class learning::quest_tool (
     ensure => file,
     source => 'puppet:///modules/learning/bashrc.learningvm',
   }
+  file { "${home}/.bashrc.puppet":
+    ensure => file,
+    source => 'puppet:///modules/learning/bashrc.puppet',
+  }
+  file { "${home}/.bashrc":
+    ensure => file,
+    source => 'puppet:///modules/learning/bashrc',
+  }
 
   package { ['git', 'gcc', 'ruby', 'ruby-devel']:
     ensure => present,
