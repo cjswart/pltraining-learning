@@ -44,6 +44,50 @@ class learning::quest_tool (
     ensure   => '4.1.2',
     provider => gem,
   }
+  -> package { 'unf_ext':
+    ensure   => '0.0.7.7',
+    provider => gem,
+  }
+  -> package { 'unf':
+    ensure   => '0.1.4',
+    provider => gem,
+  }
+  -> package { 'rest-client':
+    ensure   => '2.0.2',
+    provider => gem,
+  }
+  -> package { 'thin':
+    ensure   => '1.7.2',
+    provider => gem,
+  }
+  -> package { 'public_suffix':
+    ensure   => '2.0.5',
+    provider => gem,
+  }
+  -> package { 'addressable':
+    ensure   => '2.7.0',
+    provider => gem,
+  }
+  -> package { 'sinatra-websocket':
+    ensure   => '0.3.1',
+    provider => gem,
+  }
+  -> package { 'rake':
+    ensure   => '10.5.0',
+    provider => gem,
+  }
+  -> package { 'rack-test':
+    ensure   => '0.6.3',
+    provider => gem,
+  }
+  -> package { 'puppet-lint':
+    ensure   => '2.4.2',
+    provider => gem,
+  }
+  -> package { 'nokogiri':
+    ensure   => '1.6.8.1',
+    provider => gem,
+  }
   -> package { 'quest':
     ensure   => '1.2.2',
     provider => gem,
