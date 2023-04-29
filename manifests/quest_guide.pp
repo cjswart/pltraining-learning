@@ -23,14 +23,14 @@ class learning::quest_guide (
     content => '{"resolutions":{"graceful-fs":"4.2.4"},"devDependencies":{"graceful-fs":"^4.2.4"}}',
   }
   package { 'graceful-fs':
-    ensure   => 4.2.4,
+    ensure   => '4.2.4',
     provider => 'npm',
-    install_options => ['--save-dev'].
+    install_options => ['--save-dev'],
     require  => Package['npm'],
   }
   # Install gitbook-cli
   package { 'gitbook-cli':
-    ensure   => 2.1.2,
+    ensure   => '2.1.2',
     provider => 'npm',
     require  => Package['npm'],
   }
