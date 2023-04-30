@@ -15,13 +15,6 @@ class learning::quest_guide (
     repo_class                => '::epel',
   }
 
-  file { '/usr/src/puppet-quest-guide/package.json':
-    ensure  => file,
-    mode    => '0644',
-    owner   => 'root',
-    group   => 'root',
-    content => '{"resolutions":{"graceful-fs":"4.2.4"},"devDependencies":{"graceful-fs":"^4.2.4"}}',
-  }
   package { 'graceful-fs':
     ensure   => '4.2.4',
     provider => 'npm',
@@ -43,7 +36,14 @@ class learning::quest_guide (
     revision => $git_branch,
     source   => "https://github.com/${content_repo_owner}/${content_repo_name}.git",
   }
-
+  -> file { '/usr/src/puppet-quest-guide/package.json':
+    ensure  => file,
+    mode    => '0644',
+    owner   => 'root',
+    group   => 'root',
+    content => '{"resolutions":{"graceful-fs":"4.2.4"},"devDependencies":{"graceful-fs":"^4.2.4"}}',
+  }
+  
   # This builds html from the quest guide repository
   exec { 'gitbook build':
     command => '/usr/local/bin/gitbook install && /usr/local/bin/gitbook build',
