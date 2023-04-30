@@ -28,5 +28,17 @@ class learning (
       line => $autosign_value,
     }
   }
-
+  # allow puppetserver console and guest book trafic
+  firewalld_port { 'Open port 80 in the public zone':
+    ensure   => present,
+    zone     => 'public',
+    port     => 80,
+    protocol => 'tcp',
+  }
+  firewalld_port { 'Open port 443 in the public zone':
+    ensure   => present,
+    zone     => 'public',
+    port     => 443,
+    protocol => 'tcp',
+  }
 }
