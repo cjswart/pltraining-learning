@@ -4,6 +4,13 @@ class learning::quest_guide_server {
   $graph_port = '90'
 
   include nginx
+  
+  file { ['/var/cache/nginx', '/var/cache/nginx/fastcgi_temp']:
+    ensure => directory,
+    mode  => '0755',
+    owner => 'nginx',
+    group => 'nginx',
+  }
 
   file_line { 'disable_nginx_release':
     path    => '/etc/yum.repos.d/nginx-release.repo',
