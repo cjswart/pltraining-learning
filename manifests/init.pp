@@ -1,6 +1,6 @@
 class learning (
   $git_branch         = 'master',
-  $content_repo_owner = 'puppetlabs',
+  $content_repo_owner = 'cjswart',
   $content_repo_name  = 'puppet-quest-guide',
   $include_abalone    = false,
   $autosign_value     = false,
