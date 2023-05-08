@@ -1,5 +1,5 @@
 # install gitea
-class profile::gitea {
+class learning::gitea {
   include mysql::server
   mysql::db { 'gitea':
     ensure   => present,
