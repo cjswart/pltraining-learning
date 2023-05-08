@@ -2,28 +2,28 @@
 #PE3.7
 puppet_enterprise::profile::console::proxy::http_redirect::enable_http_redirect: false
 puppet_enterprise::profile::puppetdb::listen_address: '0.0.0.0'
-puppet_enterprise::profile::amq::broker::heap_mb: '96'
+#puppet_enterprise::profile::amq::broker::heap_mb: '96'
 puppet_enterprise::profile::master::file_sync_enabled: false
-puppet_enterprise::profile::database::shared_buffers: 128MB
-puppet_enterprise::puppetdb::command_processing_threads: 1
-puppet_enterprise::profile::puppetdb::java_args:
-  Xms: 512m
-  Xmx: 512m
-  'XX:+UseG1GC': ''
-puppet_enterprise::profile::orchestrator::jruby_max_active_instances: 1
-puppet_enterprise::profile::orchestrator::java_args:
-  Xms: 512m
-  Xmx: 512m
-puppet_enterprise::profile::console::java_args:
-  Xms: 512m
-  Xmx: 512m
-  'XX:+UseG1GC': ''
-puppet_enterprise::master::puppetserver::jruby_max_active_instances: 2
-puppet_enterprise::profile::master::java_args:
-  Xms: 1536m
-  Xmx: 1536m
-  'XX:+UseG1GC': ''
-puppet_enterprise::master::puppetserver::reserved_code_cache: 192m
+#puppet_enterprise::profile::database::shared_buffers: 128MB
+#puppet_enterprise::puppetdb::command_processing_threads: 1
+#puppet_enterprise::profile::puppetdb::java_args:
+#  Xms: 512m
+#  Xmx: 512m
+#  'XX:+UseG1GC': ''
+#puppet_enterprise::profile::orchestrator::jruby_max_active_instances: 1
+#puppet_enterprise::profile::orchestrator::java_args:
+#  Xms: 512m
+#  Xmx: 512m
+#puppet_enterprise::profile::console::java_args:
+#  Xms: 512m
+#  Xmx: 512m
+#  'XX:+UseG1GC': ''
+#puppet_enterprise::master::puppetserver::jruby_max_active_instances: 2
+#puppet_enterprise::profile::master::java_args:
+#  Xms: 1536m
+#  Xmx: 1536m
+#  'XX:+UseG1GC': ''
+#puppet_enterprise::master::puppetserver::reserved_code_cache: 192m
 
 puppet_enterprise::profile::console::delayed_job_workers: 1
 #shared_buffers takes affect during install but is not managed after
