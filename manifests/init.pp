@@ -41,4 +41,5 @@ class learning (
     port     => 443,
     protocol => 'tcp',
   }
+  include learning::gitea
 }
