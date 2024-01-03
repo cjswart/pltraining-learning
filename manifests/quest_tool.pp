@@ -126,6 +126,11 @@ class learning::quest_tool (
     command  => '/bin/gem',
     provider => gem,
   }
+  -> package { 'net-telnet':
+    ensure   => '0.1.1',
+    command  => '/bin/gem',
+    provider => gem,
+  }
   -> package { 'quest':
     ensure   => '1.2.2',
     command  => '/bin/gem',
