@@ -17,5 +17,16 @@ class learning::set_defaults {
     source => 'puppet:///modules/learning/defaults.yaml',
     require => File['/etc/puppetlabs/code/hieradata'],
   }
+  user { 'root':
+    ensure   => present,
+    password => pw_hash('puppetlabs', 'SHA-512', '71EE723C'),
+    uid      => 0,
+    gid      => 0,
+    home     => '/root',
+    shell    => '/bin/bash',
+  }
+  user { 'adminuser':
+    ensure   => present,
+    password => pw_hash('puppetlabs', 'SHA-512', '71EE723C'),
+  }
 }
-
