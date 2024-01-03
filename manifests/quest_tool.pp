@@ -65,6 +65,11 @@ class learning::quest_tool (
     command  => '/opt/puppetlabs/puppet/bin/gem',
     provider => gem,
   }
+  -> package { 'domain_name':
+    ensure   => '0.5.20180417',
+    command  => '/opt/puppetlabs/puppet/bin/gem',
+    provider => gem,
+  }
   -> package { 'rest-client':
     ensure   => '2.0.2',
     command  => '/opt/puppetlabs/puppet/bin/gem',
