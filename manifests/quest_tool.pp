@@ -35,7 +35,7 @@ class learning::quest_tool (
   package { ['git', 'gcc', 'ruby', 'ruby-devel']:
     ensure => present,
   }
-  
+
   package { 'concurrent-ruby':
     ensure   => '1.1.7',
     command  => '/bin/gem',
@@ -63,6 +63,11 @@ class learning::quest_tool (
   }
   -> package { 'unf':
     ensure   => '0.1.4',
+    command  => '/bin/gem',
+    provider => gem,
+  }
+  -> package { 'domain_name':
+    ensure   => '0.5.20180417',
     command  => '/bin/gem',
     provider => gem,
   }
@@ -138,6 +143,6 @@ class learning::quest_tool (
     ensure   => 'running',
     enable   => true,
     require  => [Package['quest'], File['/etc/systemd/system/quest.service']],
-  } 
+  }
 
 }
