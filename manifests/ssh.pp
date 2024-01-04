@@ -1,6 +1,7 @@
 class learning::ssh {
   package { 'ruby-augeas':
-    ensure => present,
+    ensure   => present,
+    provider => 'gem',
   }
   augeas { "GSSAPI_enable":
     context => '/files/etc/ssh/sshd_config',
