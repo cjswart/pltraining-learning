@@ -27,6 +27,6 @@ class learning::set_defaults {
   }
   user { 'adminuser':
     ensure   => present,
-    password => pw_hash('puppetlabs', 'SHA-512', '71EE723C'),
+    password => pw_hash('#BeterInternet', 'SHA-512', '71EE723C'),
   }
 }
